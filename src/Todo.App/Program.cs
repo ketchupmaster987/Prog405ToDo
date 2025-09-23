@@ -1,8 +1,12 @@
-﻿internal class Program
+﻿using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.DependencyInjection;
+using Todo.Common.Services;
+internal class Program
 {
-    private static void Main(string[] args)
+    private static async void Main(string[] args)
     {
-        Console.WriteLine("Hello World!");
+        var builder = Host.CreateApplicationBuilder(args);
+        builder.Services.AddTransient<ITaskService, TaskService>();
+        await builder.Build().RunAsync();
     }
-
 }
