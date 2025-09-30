@@ -14,7 +14,7 @@ namespace Todo.Common.Services
 
     }
 
-    public class TaskService : ITaskService<TaskModel>
+    public class TaskService : ITaskService
     {
         public async Task CreateTaskAsync(CreateTaskRequest request)
         {

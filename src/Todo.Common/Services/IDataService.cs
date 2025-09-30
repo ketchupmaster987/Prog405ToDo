@@ -11,11 +11,16 @@ namespace Todo.Common.Services
 {
     public interface IDataService<T, TKey>
     {
-        Task SaveAsync(Task obj);
+        Task SaveAsync(TaskModel obj);
         Task<T> GetAsync(TKey id);
     }
 
-    public class FileDataService : IDataService<TaskModel?, string>
+    public interface IFileDataService : IDataService<TaskModel?, string>
+    {
+        
+    }
+
+    public class FileDataService : IFileDataService
     {
         private readonly string path;
         
