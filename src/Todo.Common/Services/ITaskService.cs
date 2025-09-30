@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Todo.Common.Requests;
+using Todo.Common.Models;
 
 namespace Todo.Common.Services
 {
@@ -13,7 +14,7 @@ namespace Todo.Common.Services
 
     }
 
-    public class TaskService : ITaskService
+    public class TaskService : ITaskService<TaskModel>
     {
         public async Task CreateTaskAsync(CreateTaskRequest request)
         {
