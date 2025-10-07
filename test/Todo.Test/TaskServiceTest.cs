@@ -5,9 +5,15 @@ namespace Todo.Test;
 
 public class TaskServiceTest
 {
+    private IFileDataService service;
+    public TaskServiceTest()
+    {
+        this.service = new DummyDataService();
+    }
     [Fact]
     public void CreateTaskSucceeds()
     {
+        var taskService = new TaskService(this.service);
 
     }
 }

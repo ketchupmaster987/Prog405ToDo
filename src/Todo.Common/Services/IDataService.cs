@@ -69,6 +69,11 @@ namespace Todo.Common.Services
 
         public async Task SaveAsync(TaskModel obj)
         {
+            if(obj is null)
+            {
+                return;
+            }
+
             try
             {
                 string fileName = obj.ToFileName();

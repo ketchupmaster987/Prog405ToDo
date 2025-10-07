@@ -18,5 +18,18 @@ namespace Todo.Common.Requests
         public string Name { get; }
         public string Description { get; }
         public DateTime DueDate { get; }
+
+        public Result IsValid()
+        {
+            if (string.IsNullOrWhiteSpace(this.Name))
+            {
+                return Result.Err("Name Required");
+            }
+            if (this.DueDate <= DateTime.UtcNow)
+            {
+                return Result.Err("Due date must be in future");
+            }
+            return Result.Ok();
+        }
     }
 }
